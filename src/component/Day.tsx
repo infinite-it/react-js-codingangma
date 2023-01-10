@@ -1,10 +1,13 @@
 import dummy from "../db/data.json";
+import {useParams} from "react-router-dom";
 
 export default function Day() {
-    const day = 2;
-    const wordList = dummy.words.filter(word => word.day === day);
+    const {day} = useParams();
+    const wordList = typeof day === 'string' ? dummy.words.filter(word => word.day === Number(day)) : dummy.words;
+
     return (
         <>
+            <h2>Day {day}</h2>
             <table>
                 <tbody>
                 {wordList.map(word => (

@@ -1,6 +1,7 @@
 import {useParams} from "react-router-dom";
 import Word from "./Word";
 import {useEffect, useState} from "react";
+import useFetch from "../hooks/useFetch";
 
 interface Word {
     id: number,
@@ -13,13 +14,14 @@ interface Word {
 export default function Day() {
     let {day} = useParams();
     day = day ?? "1";
+    const words: Word[] = useFetch(`http://localhost:3001/words?day=${day}`);
     // const wordList = typeof day === 'string' ? dummy.words.filter(word => word.day === Number(day)) : dummy.words;
-    const [words, setWords] = useState<Word[]>([]);
-    useEffect(() => {
-        fetch(`http://localhost:3001/words?day=${day}`)
-            .then(res => res.json())
-            .then(data => setWords(data));
-    }, [day]);
+    // const [words, setWords] = useState<Word[]>([]);
+    // useEffect(() => {
+    //     fetch(`http://localhost:3001/words?day=${day}`)
+    //         .then(res => res.json())
+    //         .then(data => setWords(data));
+    // }, [day]);
 
     return (
         <>

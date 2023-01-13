@@ -19,13 +19,6 @@
   ],
   "words": [
     {
-      "id": 1,
-      "day": 1,
-      "eng": "book",
-      "kor": "책",
-      "isDone": false
-    },
-    {
       "id": 3,
       "day": 2,
       "eng": "car",

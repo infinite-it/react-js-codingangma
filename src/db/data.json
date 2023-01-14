@@ -15,6 +15,10 @@
     {
       "day": 4,
       "id": 4
+    },
+    {
+      "day": 5,
+      "id": 5
     }
   ],
   "words": [
@@ -80,6 +84,27 @@
       "kor": "사과",
       "isDone": false,
       "id": 12
+    },
+    {
+      "day": "1",
+      "eng": "apple",
+      "kor": "사과",
+      "isDone": false,
+      "id": 13
+    },
+    {
+      "day": "1",
+      "eng": "computer",
+      "kor": "컴퓨터",
+      "isDone": true,
+      "id": 14
+    },
+    {
+      "day": "1",
+      "eng": "phone",
+      "kor": "폰",
+      "isDone": false,
+      "id": 15
     }
   ]
 }

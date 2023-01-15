@@ -47,7 +47,7 @@ export default function Word({word: _word}: {
         }
     }
 
-    if(word.id===null) return null;
+    if (word.id === 0) return null;
 
     return (
         <tr className={isDone ? 'off' : ''}>

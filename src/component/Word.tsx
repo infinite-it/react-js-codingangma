@@ -1,14 +1,18 @@
 import {useState} from "react";
 
-export default function Word({word: _word}: {
-    word: {
-        id: number,
-        day?: number,
-        eng?: string,
-        kor?: string,
-        isDone?: boolean
-    }
-}) {
+interface IProps {
+    word: IWord
+}
+
+export interface IWord {
+    id: number,
+    day: number,
+    eng: string,
+    kor: string,
+    isDone: boolean
+}
+
+export default function Word({word: _word}: IProps) {
     const [word, setWord] = useState(_word);
     const [isShow, setIsShow] = useState(false);
     const [isDone, setIsDone] = useState(word.isDone);
@@ -41,7 +45,7 @@ export default function Word({word: _word}: {
                 }
             ).then(res => {
                 if (res.ok) {
-                    setWord({id: 0});
+                    setWord({...word, id: 0});
                 }
             });
         }

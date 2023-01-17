@@ -1,30 +1,26 @@
 import useFetch from "../hooks/useFetch";
-import {useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
-
-interface Day {
-    id: number,
-    day: number
-}
+import {IDay} from "./DayList";
 
 export default function CreateWord() {
-    const days: Day[] = useFetch(`http://localhost:3001/days`);
+    const days: IDay[] = useFetch(`http://localhost:3001/days`);
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
 
     function onSubmit(e: React.FormEvent) {
         e.preventDefault();
 
-        if (!isLoading) {
+        if (!isLoading && dayRef.current && engRef.current && korRef.current) {
             setIsLoading(true);
             fetch(`http://localhost:3001/words`,
                 {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({
-                        day: dayRef.current!.value,
-                        eng: engRef.current!.value,
-                        kor: korRef.current!.value,
+                        day: dayRef.current.value,
+                        eng: engRef.current.value,
+                        kor: korRef.current.value,
                         isDone: false
                     })
                 }
